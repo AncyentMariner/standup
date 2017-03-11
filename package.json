@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "",
   "keywords": [
     "Electron",
     "quick",
@@ -14,12 +14,16 @@
     "tutorial",
     "demo"
   ],
-  "author": "GitHub",
+  "author": "Jeff",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^1.4.1"
   },
   "dependencies": {
-    "node-schedule": "^1.2.0"
+    "audio-loader": "^0.6.0",
+    "audio-play": "^2.1.0",
+    "node-schedule": "^1.2.0",
+    "play-sound": "^1.1.1",
+    "speaker": "^0.3.0"
   }
 }

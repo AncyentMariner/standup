@@ -1,5 +1,3 @@
-var scheduler = require('node-schedule');
-
 function updateTime() {
   var time = new Date();
   var hr = time.getHours();
@@ -11,16 +9,53 @@ function updateTime() {
     ampm = 'pm';
   }
 
+  if (mins < 10){
+    mins = `0${mins}`;
+  }
+
   var formattedTime = `${hr}:${mins} ${ampm}`;
   document.querySelector('#thing').innerHTML = formattedTime;
 }
-
 window.setInterval(updateTime, 100);
 
+//TODO
+// function timeTilStandup() {
+//   var time = new Date();
+//
+// }
 
-var meeting = new scheduler.RecurrenceRule();
-meeting.dayOfWeek = [new scheduler.Range(1, 5)];
-meeting.hour = 9;
-meeting.minute = 15;
+//schedule meeting
+var scheduler = require('node-schedule');
+const player = require('play-sound')(opts = {});
+var song;
 
-console.log(meeting);
+const meeting = scheduler.scheduleJob({dayOfWeek: [1, 2, 3, 4, 5, 6], hour: 14, minute: 42, recurs: true}, function() {
+  console.log('standup');
+  function playThing() {
+    song = player.play('./piano.mp3', { timeout: 10000 }, (err) => {
+      if (err) console.log(`Could not play sound: ${err}`);
+    });
+  }
+  playThing();
+});
+
+function playThing() {
+  song = player.play('./piano.mp3', { timeout: 10000 }, (err) => {
+    if (err) console.log(`Could not play sound: ${err}`);
+  });
+}
+
+function stopThing() {
+  console.log('killing song');
+  if (!song || song.killed) return;
+  song.kill();
+}
+
+document.getElementById('play').addEventListener('click', playThing);
+document.getElementById('stop').addEventListener('click', stopThing);
+
+// var standup = new scheduler.RecurrenceRule();
+// standup.dayOfWeek = [new scheduler.Range(1, 5)];
+// standup.hour = 9;
+// standup.minute = 15;
+// console.log(standup);
