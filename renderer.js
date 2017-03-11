@@ -29,7 +29,7 @@ var scheduler = require('node-schedule');
 const player = require('play-sound')(opts = {});
 var song;
 
-const meeting = scheduler.scheduleJob({dayOfWeek: [1, 2, 3, 4, 5, 6], hour: 14, minute: 42, recurs: true}, function() {
+const meeting = scheduler.scheduleJob({dayOfWeek: [1, 2, 3, 4, 5], hour: 9, minute: 15, recurs: true}, function() {
   console.log('standup');
   function playThing() {
     song = player.play('./piano.mp3', { timeout: 10000 }, (err) => {
@@ -39,11 +39,11 @@ const meeting = scheduler.scheduleJob({dayOfWeek: [1, 2, 3, 4, 5, 6], hour: 14, 
   playThing();
 });
 
-function playThing() {
-  song = player.play('./piano.mp3', { timeout: 10000 }, (err) => {
-    if (err) console.log(`Could not play sound: ${err}`);
-  });
-}
+// function playThing() {
+//   song = player.play('./piano.mp3', { timeout: 10000 }, (err) => {
+//     if (err) console.log(`Could not play sound: ${err}`);
+//   });
+// }
 
 function stopThing() {
   console.log('killing song');
@@ -51,11 +51,5 @@ function stopThing() {
   song.kill();
 }
 
-document.getElementById('play').addEventListener('click', playThing);
+// document.getElementById('play').addEventListener('click', playThing);
 document.getElementById('stop').addEventListener('click', stopThing);
-
-// var standup = new scheduler.RecurrenceRule();
-// standup.dayOfWeek = [new scheduler.Range(1, 5)];
-// standup.hour = 9;
-// standup.minute = 15;
-// console.log(standup);
