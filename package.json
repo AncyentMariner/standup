@@ -20,10 +20,7 @@
     "electron": "^1.4.1"
   },
   "dependencies": {
-    "audio-loader": "^0.6.0",
-    "audio-play": "^2.1.0",
     "node-schedule": "^1.2.0",
-    "play-sound": "^1.1.1",
-    "speaker": "^0.3.0"
+    "play-sound": "^1.1.1"
   }
 }
