@@ -1,0 +1,16 @@
+body {
+  background: rgba(0, 191, 255, 0.6);
+  color: rgba(255, 255, 245, 0.9);
+}
+
+#title {
+  font-size: 3em;
+}
+
+.time {
+  font-size: 2em;
+}
+
+.buttons {
+  padding: 1em;
+}
