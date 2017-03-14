@@ -32,7 +32,7 @@ var song;
 const meeting = scheduler.scheduleJob({dayOfWeek: [1, 2, 3, 4, 5], hour: 9, minute: 15, recurs: true}, function() {
   console.log('standup');
   function playThing() {
-    song = player.play('./piano.mp3', { timeout: 10000 }, (err) => {
+    song = player.play('./triforce.mp3', { timeout: 10000 }, (err) => {
       if (err) console.log(`Could not play sound: ${err}`);
     });
   }
