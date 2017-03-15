@@ -3,7 +3,20 @@ body {
   color: rgba(255, 255, 245, 0.9);
 }
 
-#title {
+.top-level {
+  display: flex;
+}
+
+.router {
+  padding: 1em;
+  padding-left: 1.5em;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.title {
   font-size: 3em;
 }
 
