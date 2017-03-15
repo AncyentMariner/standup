@@ -16,7 +16,10 @@ function updateTime() {
   var formattedTime = `${hr}:${mins} ${ampm}`;
   document.querySelector('#thing').innerHTML = formattedTime;
 }
-window.setInterval(updateTime, 100);
+
+//initialize time in dom and update every two seconds
+updateTime();
+window.setInterval(updateTime, 2000);
 
 //TODO
 // function timeTilStandup() {
