@@ -6,11 +6,28 @@
     <link rel="stylesheet" type="text/css" href="../styles/index.css" />
   </head>
   <body>
-    <div class="top-level">
+    <nav class="top-level">
       <h3 class="title">Admin</h3>
       <div class="router">
         <a class="link" href="index.html">back to home</a>
-      </div>  
+      </div>
+    </nav>
+    <div>
+      <form id="admin-adjustments">
+        <div>
+          <label>What time is your meeting?</label>
+          <input type="time">
+        </div>
+        <div>
+          <label>How long do you want your alarm to play?</label>
+          <input type="number" placeholder="10 seconds"/>
+        </div>
+
+        <button id="admin-submit" type="submit">Make changes</button>
+      </form>
     </div>
   </body>
+  <script>
+    require('../admin.js')
+  </script>
 </html>
