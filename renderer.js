@@ -27,29 +27,22 @@ window.setInterval(updateTime, 100);
 //schedule meeting
 var scheduler = require('node-schedule');
 const player = require('play-sound')(opts = {});
-var song;
+var song = './triforce.mp3';
 
 const meeting = scheduler.scheduleJob({dayOfWeek: [1, 2, 3, 4, 5], hour: 9, minute: 15, recurs: true}, function() {
   console.log('standup');
   function playThing() {
-    song = player.play('./triforce.mp3', { timeout: 10000 }, (err) => {
+    song = player.play(song, { timeout: 10000 }, (err) => {
       if (err) console.log(`Could not play sound: ${err}`);
     });
   }
   playThing();
 });
 
-// function playThing() {
-//   song = player.play('./piano.mp3', { timeout: 10000 }, (err) => {
-//     if (err) console.log(`Could not play sound: ${err}`);
-//   });
-// }
-
-function stopThing() {
+function stopTheThing() {
   console.log('killing song');
   if (!song || song.killed) return;
   song.kill();
 }
 
-// document.getElementById('play').addEventListener('click', playThing);
-document.getElementById('stop').addEventListener('click', stopThing);
+document.getElementById('stop').addEventListener('click', stopTheThing);
